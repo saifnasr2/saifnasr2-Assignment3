@@ -17,6 +17,7 @@ public class Order
     {
         
         TotalPrice = Quantity * UnitPrice * (1 - (decimal)DiscountPercent / 100);
+        Console.WriteLine(TotalPrice);
 
 
     }

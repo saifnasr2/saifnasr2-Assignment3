@@ -172,9 +172,63 @@ internal class Program
 
 
     #endregion
+    
+    #region class reference semantics 
+        Order o1 = new Order
+        {
+            OrderId = 101,
+            CustomerName = "Ahmed",
+            Quantity = 3,
+            UnitPrice = 100m,
+            TotalPrice = 0m,
+            IsPaid = false,
+            DiscountPercent = 10,
+            ShippingCity = "Cairo",
+            Priority = 'H',
+            ItemCode = 123456789L
+        };
+
+        o1.CalculateTotal();
+
+        Order o2 = o1;
+
+        o2.IsPaid = true;
+
+
+        object boxedOrder = o1;
+        Order o3 = (Order)boxedOrder;
+        Console.WriteLine(ReferenceEquals(o1,o3));
+
+        Console.WriteLine($"o1.IsPaid: {o1.IsPaid}");
+        Console.WriteLine($"o2.IsPaid: {o2.IsPaid}");
+
+        
+        o2.PrintSummary();
+    #endregion
+    
+    #region Finish Part C
+    // order is a reference type, so o1 stores a reference to an Order object
+    // when I assign o2 = o1, both variables refer to the same Order object in the heap
+    // therefore, changing a field through o2 also changes the same object seen through o1
+    // the object variable boxedOrder also store a reference to the same Order object
+    // unboxed it back to Order gives another reference to the exact same instance
+            
+    #endregion
+    
     }
 
-}
+
+
+        
+    
+    
+    
+    
+    }
+
+    
+
+
 
     
 
