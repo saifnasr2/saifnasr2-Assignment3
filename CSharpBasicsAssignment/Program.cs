@@ -138,7 +138,41 @@ internal class Program
 
         
     }   
+        
 
+
+    
+        public struct Point
+        {
+            public int x;
+            public int y;
+        }
+
+
+    
+
+
+
+    static void RunValueVsReferenceDemo()
+    {
+    #region  struct copy semantics
+    Point p1 = new Point{x = 1 , y = 2};
+    Point p2 = p1;
+
+    p2.x = 99 ;
+
+    Console.WriteLine("\n==========Struct Copy Semantics\n==========");
+    Console.WriteLine($"Value Of x in p1: {p1.x}");
+    Console.WriteLine($"Value Of x in p2: {p2.x} ");
+
+    // the outputs will be different because the struct is a value type so when i created p1 , it takes a space in the stack and will have x =1 , y = 2 
+    // and when p2 created , it will take another space in the stack and have the same value of field in p1
+    // and when we changed x in p2 it will not change in the p1 so there wll print different valus of x ,but y still the same because it did not changed
+
+
+
+    #endregion
+    }
 
 }
 
