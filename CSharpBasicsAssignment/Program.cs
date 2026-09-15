@@ -216,13 +216,86 @@ internal class Program
     #endregion
     
     }
-
-
-
-        
     
     
+    #region Scope
+    static int fieldNumber = 10;
+
+    static void RunScopeDemo()
+    {
+    for (int i = 0; i < 5; i++)
+        {
+        int insideLoop = i * 10;
+
+        Console.WriteLine(insideLoop);
+        }
+
+    // Console.WriteLine(i)
+    // Compile error: i is declared inside the for-loop
+    // so its scope end when the loop end
+
+    // Console.WriteLine(insideLoop)
+    // Compile error: insideLoop is declared inside the loop body
+    // so it can only be accessed inside that block
+    }
     
+    
+        static void RunMethodScopeDemo()
+    {   
+    int localNumber = 50;
+
+    Console.WriteLine($"Local number: {localNumber}");
+    }
+   
+    #endregion
+    
+    
+    #region  Composite
+    static void RunCompoundOperatorsDemo()
+    {
+        int total = 100;
+
+        total += 10;
+        Console.WriteLine(total);
+
+        total -= 20;
+        Console.WriteLine(total);
+
+        total *= 2;
+        Console.WriteLine(total);
+
+        total /= 5;
+        Console.WriteLine(total);
+
+        total %= 7;
+        Console.WriteLine(total);
+
+    // total += 10; is equivalent to: total = total + 10;
+    }
+    #endregion
+    
+    
+    #region  Bitwise operators
+    static void RunBitwiseOperatorsDemo()
+    {
+    int a = 12;
+    int b = 10;
+
+        Console.WriteLine($"a & b = {a & b}");
+        Console.WriteLine($"a | b = {a | b}");
+        Console.WriteLine($"a ^ b = {a ^ b}");
+
+        // a = 1100
+        // b = 1010
+        //
+        // a & b = 1000 = 8
+        // a | b = 1110 = 14
+        // a ^ b = 0110 = 6
+
+        // & checks bits and && checks logical conditions; with &&, if the left
+        // operand is false, the right operand is not evaluated, unlike bitwise &.
+    }
+    #endregion
     
     }
 
